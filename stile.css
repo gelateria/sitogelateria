@@ -1,0 +1,73 @@
+button
+{
+    margin: 5px 20px 0 0;
+
+}
+.navbar
+{
+    border: medium none;
+    padding: 20px;
+}
+
+.contenuto
+{
+
+    font-family: "Century Gothic", "Gill Sans MT", arial, verdana, sans-serif;
+    line-height: 180%;
+
+
+
+}
+.container
+{
+
+}
+.container-fluid
+{
+    background-color: burlywood;
+    margin: 40px 0;
+    padding: 40px 0;
+}
+.immagini
+{
+    margin: 50px auto;
+
+
+}
+.col-xs-12, .col-sm-6
+{
+
+}
+.borderfooter
+{
+    border-top: 1px solid brown;
+}
+
+
+#footer
+{
+    position: relative;
+    bottom: 0;
+    border-top: 1px solid #eb9316;
+    width: 1230px;
+    margin: 50px auto;
+
+
+}
+div#footer ul li{
+    margin-top: 10px;
+    display: inline-block;
+    list-style-type: none;
+}
+#left
+{
+    position: relative;
+    float: left;
+}
+#right
+{
+    position: relative;
+    float: right;
+    left: -50px;
+    top: 10px;
+}
