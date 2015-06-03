@@ -58,8 +58,7 @@ $row=$connessione->query($sql);
                 . '</td><td>' . $row['nome_certificazione']
                 . '</td><td>' . $row['descrizione_certificazione']
                 . '</td><td> ' . $row['data_certificazione']
-            //  LE FOTO NON SI VEDONO!!
-              .'</td><td><img src="data:image/jpg;base64,"'.base64_encode($row['logo_certificazione']).'"width=300px>'
+                .'</td><td> <img src="../img/'.$row["logo_certificazione"].'" width="200"/>'  //  LE FOTO SI VEDONO!!
                 . '</td>';
 
             // LINK update AGGIORNA I DATI
@@ -128,12 +127,36 @@ echo'</table>';
           $cert = (isset($_POST['certificazione'])) ? $_POST['certificazione'] : '';
           $data_cert = (isset($_POST['data'])) ? $_POST['data'] : '';
           $descr = (isset($_POST['description'])) ? $_POST['description'] : '';
-          $foto=(isset($_POST['foto'])) ? $_POST['foto'] : '';
+          // UPLOAD IMMAGINE SU CARTELLA IMG
+
+           // FUNZIONAAAAAAAAAAAA
+
+
+         // DIRECTORY PATH CARTELLA IMMAGINI
+
+          define("UPLOAD_DIR", "../img/");
+
+        //VARIABILE GLOBALE $_FILES che contiene il mio file caricato dal POST
+
+          $file = $_FILES['user_file'];
+
+          //SE NON SI è VERIFICATO ALCUN ERRORE NEL UPLOAD LA FUNZIONE IS_UPLOADED_FILE HA SPOSTATO IL FILE NELLA PATH TEMPORANEA
+
+          if($file['error'] == UPLOAD_ERR_OK and is_uploaded_file($file['tmp_name'])) {
+
+              //SPOSTO IL FILE DALLA PATH TEMPORANEA DEL PHP NELLA CARTELLA IMG
+
+              move_uploaded_file($file['tmp_name'], UPLOAD_DIR.$file['name']);
+
+                      echo"<p>File caricato correttamente</p>";
+          }else {echo"<p>Errore nel upload del file</p>";
+            }
+
 
           $sql = $connessione->prepare("
                                   INSERT INTO certificazione( `nome_certificazione`, `data_certificazione`,`descrizione_certificazione`,`logo_certificazione`)
 
-                        VALUES ('".$cert."','".$data_cert."','".$descr."','".$foto."')");
+                        VALUES ('".$cert."','".$data_cert."','".$descr."','".$file['name']."')");
           if ($sql->execute()) {
 
               // NON FUNZIONA IL REDIRECT!! PERCHè?!?!?!?!?!
