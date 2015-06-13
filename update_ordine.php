@@ -1,13 +1,17 @@
 <?php
 
 
+include'header.php';
+include'conn.php';
+
 
 
 if(isset($_POST['update'])){
 
-    include'conn.php';
 
-    $id=$_GET['idordine'];/*valore id corretto*/
+
+
+    $id=$_GET['id'];/*valore id corretto*/
     $nomenuovo=$_POST["nome"];
     $cognomenuovo =$_POST["cognome"];
     $cittanuovo =$_POST["citta"];
@@ -27,8 +31,9 @@ if(isset($_POST['update'])){
 
 
 
+    $sql= $db->exec("UPDATE `ordine` SET `nome`='$nomenuovo' WHERE `id`=$id");
 
-    $sql= $connessione->exec("UPDATE ordine SET nome='$nomenuovo',cognome='$cognomenuovo'citta='$cittanuovo',indirizzo='$indirizzonuovo',cap='$capnuovo',email='$emailnuovo',telefono='$telefononuovo',data='$datanuovo',nome='$nomenuovo',gelato='$gelatonuovo',gusto='$gustonuovo',quantita='$quantitanuovo', WHERE id=$id");
+    //$sql= $db->exec("UPDATE `sitogelateria`.`ordine` SET `nome`='$nomenuovo',`cognome`='$cognomenuovo'`citta`='$cittanuovo',`indirizzo`='$indirizzonuovo',`cap`='$capnuovo',`email`='$emailnuovo',`telefono`='$telefononuovo',`data`='$datanuovo',`nome`='$nomenuovo',`gelato`='$gelatonuovo',`gusto`='$gustonuovo',`quantita`='$quantitanuovo', WHERE `id`=$id");
 
 
  echo"ordine aggiornato con successo.";
@@ -38,7 +43,7 @@ if(isset($_POST['update'])){
 
 }
 else {
-    $id=$_GET['idordine'];
+    $id=$_GET['id'];
     $nomenuovo=$_GET["nome"];
     $cognomenuovo =$_GET["cognome"];
     $cittanuovo =$_GET["citta"];
@@ -57,90 +62,175 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        form {
+            padding: 0 0 0 10px;
+        }
+        #panna {
+
+        }
+    </style>
+
     <title>Aggiornamento ordine: </title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
 
 <h3>Aggiornamento ordine:</h3><br/>
 
-<form method="POST" action="<?php $_PHP_SELF ?>">
-    <table>
+<form id="form" method="POST" action="<?php $_PHP_SELF ?>">
+    <fieldset >
+       <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input name="nome" type="text"  class="form-control" id="nome" placeholder="Inserisci il nome...">
+                </div>
+            </div>
+       </div>
+       <div class="row">
+          <div class="col-sm-5 col-lg-5">
+            <div class="form-group">
+                <label for="cognome">Cognome</label><br/>
+                <input name="cognome" type="text" class="form-control" id="cognome" placeholder="Inserisci il cognome...">
+            </div>
+          </div>
+       </div>
 
-
-        <tr>
-            <td> nome</td>
-
-            <td><input type="text" name="nome"> </td>
-        </tr>
-        <tr>
-            <td> cognome</td>
-            <td><input type="text" name="cognome"> </td>
-        </tr>
-        <tr>
-            <td> citt&agrave</td>
-            <td><input type="text" name="citta"> </td>
-        </tr>
-        <tr>
-            <td> indirizzo</td>
-            <td><input type="text" name="indirizzo"> </td>
-        </tr>
-        <tr>
-            <td> cap</td>
-            <td><input type="text" name="cap"> </td>
-        </tr>
-        <tr>
-            <td> email</td>
-            <td><input type="text" name="email"> </td>
-        </tr>
-        <tr>
-            <td> telefono</td>
-            <td><input type="text" name="telefono"> </td>
-        </tr>
-        <tr>
-            <td> data</td>
-            <td><input type="text" name="data"> </td>
-        </tr>
-        <tr>
-            <td> tipologia gelato</td>
-            <td><input type="text" name="gelato"> </td>
-        </tr>
-        <tr>
-            <td> gusto</td>
-            <td><input type="text" name="gusto"> </td>
-        </tr>
-        <tr>
-            <td> panna</td>
-            <td> <input type="radio" name="panna"  value="si"/>  Si<input type="radio" name="panna" value="no"/> No</td>
-        </tr>
-        <tr>
-            <td> quantita</td>
-            <td>
-                <form>
-                    <select name="quantita" >
-                        <option value="0.5">mezzo chilo</option>
-                        <option value="1">un chilo</option>
-                        <option value="2">due chili</option>
-                        <option value="3">tre chili</option>
-                        <option value="oltre">oltre i 3 richiedere disponibilit&agrave</option>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Citt&agrave</label><br/>
+                    <input type="text" name="email" class="form-control" id="citta" placeholder="Inserisci la citt&agrave...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Indirizzo</label><br/>
+                    <input type="text" name="indirizzo" class="form-control" id="indirizzo" placeholder="Inserisci l'indirizzo...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                   <label for="email">Cap</label><br/>
+                   <input type="text" name="cap" class="form-control" id="cap" placeholder="Inserisci il Cap...">
+               </div>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Email</label><br/>
+                    <input type="text" name="email" class="form-control" id="email" placeholder="Inserisci l'e-mail...">
+                </div>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Telefono</label><br/>
+                    <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Inserisci il telefono...">
+                </div>
+           </div>
+        </div>
+        <div class="row">
+             <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Data</label><br/>
+                    <input type="text" name="data" class="form-control" id="data" placeholder="Inserisci la data...">
+                </div>
+             </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 col-lg-5">
+            <div class="form-group">
+                <label for="email">Ora</label><br/>
+                <input type="text" name="ora" class="form-control" id="ora" placeholder="Inserisci l'ora...">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+             <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Tipologia gelato</label><br/>
+                    <input name="gelato" type="text" class="form-control" id="gelato" placeholder="Seleziona la tipologia di gelato...">
+                </div>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">gusto</label><br/>
+                    <input type="text" name="gusto" class="form-control" id="gusto" placeholder="Inserisci il gusto...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="email">Panna</label><br/>
+                    <input type="text" name="panna" class="form-control" id="data">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="form-group">
+                    <label for="stato">Quantit&agrave</label>
+                    <select name="quantita" class="form-control" id="stato">
+                        <option>mezzo chilo</option>
+                        <option>Un chilo</option>
+                        <option>Due chili</option>
+                        <option>Richiedere per maggiori quantit&agrave</option>
                     </select>
-                </form>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td><input type="submit" name="update" value="update"></td>
-
-        </tr>
-
-
-    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-lg-5">
+                <div class="checkbox">
+                    <label for="stato">Panna</label>
+                    <select name="quantita" class="form-control" id="panna">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+            <button type="submit" class="btn btn-default">Invia</button>
+    </fieldset>
 </form>
 <?php
 }
 ?>
 <br><br>
-<a href="back_ordini.php">BACK</a>
+<a href="back_and_gestione_ordini.php">BACK</a>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<?php
+
+include'footer.html';
+?>
+
 </body>
 </html>

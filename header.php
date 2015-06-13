@@ -18,7 +18,6 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-    </head>
     <body>
     <div class="col-sm-12">
         <nav class="navbar navbar-default">
@@ -36,15 +35,16 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <button type="button" class="btn btn-default btn-lg">
-                                <span><a href="index.php"><img src="logogelato.png" alt="Home" width="100px"></a></span>
+                                <span><a href="index.php"><img src="img/logogelato.png" alt="Home" width="100px"></a>
                             </button>
                         </li>
 
                         <li><a href="chisiamo.php">Chi Siamo</a></li>
                         <li><a href="catalogo.php">Catalogo</a></li>
                         <li><a href="formgelato.php">Ordina</a></li>
-                        <li><a href="#">Contatti</a></li>
+                        <li><a href="contatti.php">Contatti</a></li>
                         <li><a href="certificazione.php">Certificazioni</a></li>
+                        <li><a href="formregistrazione.php">Registrati</a></li>
 
                         </li>
                     </ul>

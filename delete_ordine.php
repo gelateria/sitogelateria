@@ -1,12 +1,14 @@
 <?php
-include'conn.php';
+$col="mysql:localhost;dbname=sitogelateria";
+
+$db=new PDO($col,'root','2654274');
 /*collegamento al database effettuato*/
 
 /*ora comunichiamo con il db.*/
 
-$id=$_GET['idordine'];
+$id=$_GET[("id")];
 
-$sql=$connessione->exec("DELETE FROM ordine WHERE idordine=".$id);
+$sql=$db->exec("DELETE  FROM `sitogelateria`.`ordine` WHERE `id`=".$id);
 
 
 
@@ -16,4 +18,4 @@ echo"record eliminato.";
 
 ?>
 
-<a href="back_ordini.php">BACK</a>
+<a href="back_and_gestione_ordini.php">BACK</a>

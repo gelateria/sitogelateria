@@ -1,28 +1,27 @@
 <?php
 session_start(); //start sessione database
 include("conn.php"); //includo i dati per la connessione al database
-if (isset($_POST['logout'])){ //se viene premuto il tasto di logout
-session_destroy(); //interrompo la sessione per il logout
-  header("location:index.php"); //reindirizzamento all'index
+if (isset($_POST['logout'])) { //se viene premuto il tasto di logout
+    session_destroy(); //interrompo la sessione per il logout
+    header("location:index.php"); //reindirizzamento all'index
 }
-if (isset($_SESSION['username'])){ //se la sessione è attiva
-  echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
+if (isset($_SESSION['username'])) { //se la sessione è attiva
+    echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
   <script>
       $(document).ready(function() { //funzione per nascondere il pulsante di login e mostrare quello di logout
           $("#logout").show();
           $("#loginb").hide();
 });
-  </script>'."<div style='position:relative;left:1010px;'>Benvenuto ".$_SESSION['username']."</div>"; //stampo a video username utente
-}
-else{
-     echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
+  </script>' . "<div style='position:relative;left:1010px;'>Benvenuto " . $_SESSION['username'] . "</div>"; //stampo a video username utente
+} else {
+    echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
     <script>
         $(document).ready(function() { //funzione per nascondere il pulsante di logout e mostrare quello di login
             $("#logout").hide();
             $("#loginb").show();
 });
     </script>';
-;
+    ;
 }
 if (isset($_POST['Vai'])) { //condizione accettata se viene premuto il tasto di login
     $username = $_POST["username"]; //assegno i dati del form alle variabili
@@ -58,15 +57,16 @@ if (isset($_POST['Vai'])) { //condizione accettata se viene premuto il tasto di 
     }
 } else {
     ?>
+    <link rel="stylesheet" href="stile.css" type="text/css"> <!--foglio di stile-->
     <meta charset="utf-8"> <!-- formattazione testo -->
     <form method="post" > <!-- inizio del form con metodo post -->
         <div style="float:right;">
-            User <input type="text" name="username" style="height:20px;width:100px;" ><br> <!-- inserimento dati -->
-            Pass <input type="password" name="password" style="height:20px;width:100px;" ><br>
-            <input type="submit" id="loginb" value="Vai" name="Vai"> <!-- pulsante di login -->
-            <input type="submit" id="logout" value="logout" name="logout"> <!-- link di logout -->
+            <font class="login">User</font> <input type="text" name="username" style="height:20px;width:100px;border-radius:5px;box-shadow:0px 0px 2px gray;border-style:none;" ><br> <!-- inserimento dati -->
+            <font class="login" style="margin-top:5px;">Pass</font> <input  type="password" name="password" style="margin-top:5px;height:20px;width:100px;border-radius:5px;box-shadow:0px 0px 2px gray;border-style:none;" ><br>
+            <input class="btn" type="submit" id="loginb" value="Vai" name="Vai" style="border-radius:5px;color:white;background-color:burlywood;height:30px;width:50px;border-style:outset;border-color:burlywood; margin-top:5px;line-height:10px;"> <!-- pulsante di login -->
+            <input class="btn" type="submit" id="logout" value="logout" name="logout" style="border-radius:5px;color:black;margin-top:5px;background-color:white;height:30px;width:60px;border-style:outset;border-color:white;line-height:10px;"> <!-- link di logout -->
         </div>
     </form> <!-- chiusura form -->
-<?php
+    <?php
 }
 ?>

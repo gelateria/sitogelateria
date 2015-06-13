@@ -1,5 +1,11 @@
+<?php
+//Apriamo una sessione per poter conservare i valori dei campi del form per un successivo ordine a nome della stessa persona
+	//session_start();
+	?>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="formgelato.css" >
 		<title>
 			Ordine
 		</title>
@@ -16,39 +22,50 @@
 					e.style.display = "block";
 				}
 			}
+
+			// =============== Funzione per impedire l'inserimento di caratteri NON numerici nel campo Telefono ===============//
+
+			function onlyNumeric(evt){
+   			/*Questa condizione ternaria è necessaria per questioni di compatibilità tra browser se "evt.which" non viene preso, usa "event.keyCode" */
+   			var charCode=(evt.which)?evt.which:event.keyCode;
+   			if(charCode>31 && (charCode<48 || charCode>57))
+      		return false;
+   			return true;
+			}
+
 		</script>
 	</head>
 	<body>
 		<?php include 'header.php';?>
 		<!-- Con questo tag si eviteranno problemi con caratteri accentati -->
 		<meta charset="utf-8" />
-		<h1>Ordina del gelato</h1>
+		<h1 class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">Ordina del gelato</h1>
 		<div>
 		<!-- Form per la presa in carico di un ordine di gelato -->
-		<table>
+		<table id="form" class="class=col-lg-11 col-md-11 col-sm-8 col-xs-4">
 			<tr>
 				<td>
 					<form method="post" action="insertgelato.php">
-						Nome
+						Nome 
 				</td>
 				<td>
-					<input type="text" name="nome" autofocus>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Cognome
-				</td>
-				<td>
-					<input type="text" name="cognome">
+					<input type="text" name="nome" autofocus value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['nome']; ?>" />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Città
+					Cognome 
 				</td>
 				<td>
-					<input type="text" name="citta">
+					<input type="text" name="cognome" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['cognome']; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Citt&agrave
+				</td>
+				<td>
+					<input type="text" name="citta" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['citta']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -56,7 +73,7 @@
 					Indirizzo
 				</td>
 				<td>
-					<input type="text" name="indirizzo">
+					<input type="text" name="indirizzo" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['indirizzo']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -64,23 +81,23 @@
 					CAP
 				</td>
 				<td>
-					<input type="text" name="cap">
+					<input type="text" name="cap" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['cap']; ?>" onkeypress="return onlyNumeric(event);" />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Telefono
+					Telefono 
 				</td>
 				<td>
-					<input type="number" name="telefono">
+					<input type="text" name="telefono" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['telefono']; ?>" onkeypress="return onlyNumeric(event);" maxlength="10" />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					E-mail (sarà usata per confermare l'ordine)
+					E-mail (sar&agrave usata per confermare l'ordine)
 				</td>
 				<td>
-					<input type="email" name="email" placeholder="indirizzo@dominio.en">
+					<input type="email" name="email" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['email']; ?>" placeholder="indirizzo@dominio.en" />
 				</td>
 			</tr>
 			<tr>
@@ -88,7 +105,7 @@
 					Data consegna
 				</td>
 				<td>
-					<input type="date" name="data">
+					<input type="date" name="data" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['data']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -96,12 +113,12 @@
 					Ora consegna (10:00 / 23:00)
 				</td>
 				<td>
-					<input type="time" name="ora" min="10:00" max="23:00">
+					<input type="time" name="ora" min="10:00" max="23:00" value="<?php if(isset($_SESSION['nome'])) echo $_SESSION['ora']; ?>" />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Gelato
+					Gelato 
 				</td>
 				<td>
 					<fieldset>
@@ -122,7 +139,7 @@
 			</tr>
 			<tr>
 				<td>
-					Gusto
+					Gusto 
 				</td>
 				<td>
 					Primo gusto
@@ -130,7 +147,7 @@
 						<select name="gusto1">
 							<option value="amarena"> Amarena </option>
 							<option value="anguria"> Anguria </option>
-							<option value="caffe"> Caffè </option>
+							<option value="caffe"> Caff&egrave </option>
 							<option value="cioccolato"> Cioccolato </option>
 							<option value="cocco"> Cocco </option>
 							<option value="fragola"> Fragola </option>
@@ -148,7 +165,7 @@
 							<option value="nessuno"> ------- </option>
 							<option value="amarena"> Amarena </option>
 							<option value="anguria"> Anguria </option>
-							<option value="caffe"> Caffè </option>
+							<option value="caffe"> Caff&egrave </option>
 							<option value="cioccolato"> Cioccolato </option>
 							<option value="cocco"> Cocco </option>
 							<option value="fragola"> Fragola </option>
@@ -166,17 +183,17 @@
 				</td>
 				<td>
 					<fieldset>
-						Sì <input type="radio" name="panna" value="si">
+						S&iacute <input type="radio" name="panna" value="si">
 						No <input type="radio" name="panna" value="no">
 					</fieldset>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Quantità
+					Quantit&agrave
 				</td>
 				<td>
-					<input type="text" name="quantita">
+					<input type="text" name="quantita" maxlength="1" onkeypress="return onlyNumeric(event);">
 				</td>
 				<td>
 					<fieldset>
@@ -187,13 +204,13 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" value="Invia">
-					<input type="reset" value="Reset">
+					<input class="btn btn-primary col-lg-2 col-md-2 col-sm-4 col-xs-12" type="submit" value="Invia" name="form">
+					<input class="btn btn-success col-lg-2 col-md-2 col-sm-4 col-xs-12" type="reset" value="Reset">
 				</td>
 			</tr>
 			</form>
 		</table>
 		</div>
-	<?php include 'footer.html';?>
+	    <?php include 'footer.html';?> 
 	</body>
 </html>

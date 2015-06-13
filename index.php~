@@ -21,6 +21,7 @@
     <!--Font awesome per icone footer-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+
     <!--foglio di stile-->
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
@@ -28,10 +29,15 @@
 <body>
 
 <?php  include ("header.php"); ?>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/divascookies_style_dark_top.css" />
+<script type="text/javascript" src="js/jquery.divascookies-0.5.js"></script>
+<script type="text/javascript">
+	$.DivasCookies();
+</script>
     <br> <br> <br> <br> <br> <br> <br> <br>
 <br>
-    <!--contenitore slider-->
-    <div id="carousel" class="container-fluid img-responsive">
+    <div id="carousel" class="slide">
     <!-- slider carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
@@ -43,7 +49,7 @@
 
         <!-- Wrapper Slides -->
         <div class="carousel-inner">
-            <div class="item active ">
+            <div class="item active">
                 <!-- Prima immagine -->
                 <div class="fill" style="background-image:url('img/slide1.jpg');"></div>
                 <div class="carousel-caption">
@@ -77,7 +83,7 @@
 
     <!-- Page Content -->
     <div id="container">
-   
+
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -94,17 +100,17 @@
     </script>
     </div>
  </div>
- 
-  
+
+
 
 <div>
     <br> <br> <br> <br> <br> <br> <br> <br>
-  <?php  include ("news.php"); ?>   
+  <?php  include ("news.php"); ?>
 </div>
- 
+
 
  <?php  include ("footer.html"); ?>
- 
+
 </body>
 
 </html>

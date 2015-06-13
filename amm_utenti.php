@@ -1,5 +1,6 @@
 <link href="styleam.css" rel="stylesheet" type="text/css"> <!-- link css -->
 <meta charset="utf-8"> <!-- meta testo -->
+
 <div> <!-- div contenitore tabella utenti -->
     <table> <!-- tabella utenti -->
         <tr>
@@ -63,7 +64,39 @@
             }
         }
         ?> <!-- chiusura script php -->
-    </table> <!-- chiusura tabella utenti -->
+        <?php
+        session_start(); //start sessione database
+        if (isset($_POST['logout'])){ //se viene premuto il tasto di logout
+        session_destroy(); //interrompo la sessione per il logout
+          header("location:index.php"); //reindirizzamento all'index
+        }
+        if (isset($_SESSION['username'])){ //se la sessione è attiva
+          echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
+          <script>
+              $(document).ready(function() { //funzione per nascondere il pulsante di login e mostrare quello di logout
+                  $("#logout").show();
+                  $("#loginb").hide();
+        });
+          </script>'."<div style='position:relative;left:1010px;'>Benvenuto ".$_SESSION['username']."</div>"; //stampo a video username utente
+        }
+        else{
+             echo'<script src="js/jquery.js"></script> <!-- richiamo libreria jquery -->
+            <script>
+                $(document).ready(function() { //funzione per nascondere il pulsante di logout e mostrare quello di login
+                    $("#logout").hide();
+                    $("#loginb").show();
+        });
+            </script>';
+        ;
+        }
+        ?>
+        <meta charset="utf-8"> <!-- formattazione testo -->
+        <form method="post" > <!-- inizio del form con metodo post -->
+            <div style="float:right;">
+                <input type="submit" id="logout" value="logout" name="logout"> <!-- link di logout -->
+            </div>
+        </form> <!-- chiusura form -->  
+  </table> <!-- chiusura tabella utenti -->
 </div> <!-- chiusura div contenitore tabella utenti -->
 <form name="form_login" method="post" > <!-- inizio del form con metodo post -->
     Campo di ricerca<br><br>

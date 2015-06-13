@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Chi Siamo</title>
         <!-- Fogli di stile -->
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/stili-custom.css" rel="stylesheet" >
-        <link href="stile.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="css/stili-custom.css" rel="stylesheet" media="screen">
+        <link href="css/stilechisiamo.css" rel="stylesheet" type="text/css" media="screen">
 
         <!-- Modernizr -->
         <script src="js/modernizr.custom.js"></script>
@@ -20,14 +20,16 @@
         <![endif]-->
     </head>
     <body>
-      <?php
-include('header.php');
-?>
+
+        <?php
+            include 'header.php';
+        ?>
+
         <div class="container">
             <section>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4 hidden-xs">
-                        <div class="contenuto"><img src="logogelato.png" alt="Logo azienda" class="img-responsive"></div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="contenuto"><img src="img/logogelato.png" alt="Logo azienda" class="img-responsive"></div>
                     </div>
                     <div class="col-xs-12 col-sm-8">
                         <div class="contenuto">
@@ -54,10 +56,10 @@ include('header.php');
             <div class="container">
             <section>
                 <div class="row">
-                        <div class="col-xs-6 col-sm-3 immagini"><img src="chisiamo3.jpg" alt="Antico carretto del gelato" class="img-responsive"></div>
-                        <div class="col-xs-6 col-sm-3 immagini"><img src="chisiamo1.jpg" alt="Frutta secca" class="img-responsive"></div>
-                        <div class="col-xs-6 col-sm-3 immagini"><img src="chisiamo7.jpg" alt="Metodo di conservazione" class="img-responsive"></div>
-                        <div class="col-xs-6 col-sm-3 immagini"><img src="chisiamo2.jpg" alt="Gelato cremoso" class="img-responsive"></div>
+                        <div class="col-xs-6 col-sm-3 immagini"><img src="img/chisiamo3.jpg" alt="Antico carretto del gelato" class="img-responsive"></div>
+                        <div class="col-xs-6 col-sm-3 immagini"><img src="img/chisiamo1.jpg" alt="Frutta secca" class="img-responsive"></div>
+                        <div class="col-xs-6 col-sm-3 immagini"><img src="img/chisiamo7.jpg" alt="Metodo di conservazione" class="img-responsive"></div>
+                        <div class="col-xs-6 col-sm-3 immagini"><img src="img/chisiamo2.jpg" alt="Gelato cremoso" class="img-responsive"></div>
                 </div>
             </section>
             </div>
@@ -87,8 +89,10 @@ include('header.php');
         </div>
 
         <?php
-include('footer.html');
-?>
+             include 'footer.html';
+        ?>
+
+
     <!-- jQuery e plugin JavaScript  -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

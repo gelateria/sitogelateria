@@ -74,7 +74,7 @@
 		 //A connessione riuscita si passa all'inserimento dei valori nella tabella specificata
 								    $inserimento=$connessione->exec("INSERT INTO ordine (idordine,nome,cognome,citta,indirizzo,cap,email,telefono,data,ora,gelato,gusto,panna,quantita)
 									  								    VALUES('null','$nome','$cognome','$citta','$indirizzo','$cap','$email','$telefono','$data','$ora','$gelato','$gusto','$panna','$somma')");
-								    echo"Ordine inserito correttamente";
+								    echo"Ordine inserito correttamente<br><a href='formgelato.php'>Effettua un altro ordine";
 								  } //Chiusura else interno per inserimento database
 					}
 		} //Chiusura else controllo numero telefono
@@ -142,7 +142,7 @@
 		 //A connessione riuscita si passa all'inserimento dei valori nella tabella specificata
 								    $inserimento=$connessione->exec("INSERT INTO ordine (idordine,nome,cognome,citta,indirizzo,cap,email,telefono,data,ora,gelato,gusto,panna,quantita)
 									  								    VALUES('null','$nome','$cognome','$citta','$indirizzo','$cap','$email','$telefono','$data','$ora','$coppetta','$gusto','$panna','$somma')");
-								    echo"Ordine inserito correttamente";
+								    echo"Ordine inserito correttamente<br><a href='formgelato.php'>Effettua un altro ordine";
 								  } //Chiusura else interno per inserimento database
 					}
 		} //Chiusura else controllo tipo gelato: coppetta

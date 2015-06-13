@@ -1,0 +1,41 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    
+}
+button
+{
+    margin: 5px 20px 0 0;
+
+}
+.navbar
+{
+    border: medium none;
+    padding: 20px;
+}
+iframe
+{
+    width: 550px;
+    height: 450px;
+    border:0;
+
+}
+/*.col-sm-6
+{
+    border: 1px solid #000;
+}*/
+.container a img
+{
+    display: inline;
+}
+.borderfooter
+{
+    border-top: 1px solid brown;
+}
+
+footer 
+{
+    padding-top: 20px;
+    padding-bottom: 40px;
+}

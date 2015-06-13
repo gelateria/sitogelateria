@@ -1,14 +1,44 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
 button
 {
     margin: 5px 20px 0 0;
+    
 
 }
+button:hover{text-shadow:0px 0px 5px black;
+    transition:0.5s;}
+ul li a{margin-top:15px;
+margin-right:10px;}
+ul li a:hover{text-shadow:0px 0px 1px black;
+    transition:0.5s;}
+ul li a:active{
+    color:burlywood;
+    text-shadow:0px 0px 5px burlywood;
+    transition:0.2s;}
 .navbar
 {
     border: medium none;
-    padding: 20px;
+    padding: 30px;
 }
+.login:hover{color:burlywood;}
 
+#loginb:hover{background-color:#A77F35;}
+#myCarousel{width:1200px;
+height:350px;
+margin:0 auto;
+    position:relative;
+    top:-40px;
+}
+#carousel{
+    height:352px;
+    background-color:burlywood;
+border-top: 1px solid burlywood;
+border-bottom:1px solid burlywood;
+box-shadow:0px 0px 5px burlywood;}
 .contenuto
 {
 
@@ -18,9 +48,11 @@ button
 
 
 }
-.container
+.container{
+width:100%;}
+.container a img
 {
-
+    display: inline;
 }
 .container-fluid
 {
@@ -31,43 +63,25 @@ button
 .immagini
 {
     margin: 50px auto;
-
-
 }
-.col-xs-12, .col-sm-6
-{
 
-}
 .borderfooter
-{
-    border-top: 1px solid brown;
+{	
+	float:left;
+    border-top: 1px solid #d58512;
+	margin:0 auto;
 }
 
-
-#footer
-{
-    position: relative;
-    bottom: 0;
-    border-top: 1px solid #eb9316;
-    width: 1230px;
-    margin: 50px auto;
-
-
+footer
+{	color:whitesmoke;
+    background-color:burlywood;
+    float:left;
+    padding-top: 20px;
+    padding-bottom: 40px;
+	width:100%;
+	margin:0 auto;
+	border-top:10px;
+    margin-top:30px;
+	
 }
-div#footer ul li{
-    margin-top: 10px;
-    display: inline-block;
-    list-style-type: none;
-}
-#left
-{
-    position: relative;
-    float: left;
-}
-#right
-{
-    position: relative;
-    float: right;
-    left: -50px;
-    top: 10px;
-}
+#sezioneF{margin-top:10px;}

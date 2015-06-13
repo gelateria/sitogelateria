@@ -1,0 +1,67 @@
+
+#h1 {text-align: center;
+	margin-bottom:5%;
+
+
+	float:left;
+	}
+#phpsection{
+	font-family: "Century Gothic", "Gill Sans MT", arial, verdana, sans-serif;
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+	text-justify:auto;
+
+	}
+h3{float:left; margin-left:10%;}
+	#floatsection{width:100%;}
+#left{float:left; margin-left:10%}
+#right{float:right; margin-right:10%;}
+
+table td tr{
+		text-align: center;
+		border: 1px solid #000000;
+		margin:0 auto;
+
+	}
+
+td{
+	border: 1px solid #000000;
+	padding: 50px;
+	min-height: 150px;
+	min-width: 100px;
+
+	}
+
+#file{
+	display: inline-block;
+	margin:0 auto;
+    float:right;
+
+}
+input{
+		position: relative;
+		left: 20px;
+
+		}
+#data{
+
+	position: relative;
+	left: -20px;
+}
+
+#data_text{
+
+			position: relative;
+			left:-50px;
+}
+
+textarea{
+		width: 330px;
+		min-height: 200px;}
+
+#floatsection ul li{
+	list-style-type: none;
+	margin-bottom: 50px;
+
+}
